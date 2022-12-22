@@ -1,13 +1,15 @@
 CREATE TABLE product (
-	id serial,
-  product_name TEXT,
-	product_id INT PRIMARY KEY
+	id INT PRIMARY KEY,
+  name TEXT,
+  slogan TEXT,
+  description TEXT,
+  category TEXT,
+  default_price INT
 );
 
 CREATE TABLE question (
-	id serial,
   question_id INT PRIMARY KEY,
-	product_id INT REFERENCES product(product_id),
+	product_id INT REFERENCES product(id),
   username TEXT,
   email TEXT,
   body TEXT,
@@ -17,7 +19,6 @@ CREATE TABLE question (
 );
 
 CREATE TABLE answer (
-  id serial,
   answer_id INT PRIMARY KEY,
   question_id INT REFERENCES question(question_id),
   username TEXT,
@@ -27,9 +28,8 @@ CREATE TABLE answer (
   answer_date TIMESTAMPTZ
 );
 
-CREATE TABLE picture (
-id serial,
-picture_url TEXT PRIMARY KEY,
-question_id INT REFERENCES question(question_id),
+CREATE TABLE photo (
+photo_id INT PRIMARY KEY,
+photo_url TEXT,
 answer_id INT REFERENCES answer(answer_id)
 );
