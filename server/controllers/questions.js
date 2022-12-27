@@ -2,19 +2,19 @@ const models = require('../models');
 
 module.exports = {
   getQuestions: (req, res) => {
-    models.getQuestions(req.query, (err, data) => {
+    models.getQuestions(req.params.product_id, req.query, (err, data) => {
       res.status(err ? 404 : 200).send(data);
     });
   },
 
-  getOneAnswers: (req, res) => {
-    models.getOneAnswers(req.params.question_id, req.query, (err, data) => {
+  getAnswers: (req, res) => {
+    models.getAnswers(req.params.question_id, req.query, (err, data) => {
       res.status(err ? 400 : 200).send(data);
     });
   },
 
   addQuestion: (req, res) => {
-    models.addQuestion(req.body, (err, data) => {
+    models.addQuestion(req.params.product_id, req.body, (err, data) => {
       err ? res.status(400).send(err) : res.status(201).send();
     });
   },

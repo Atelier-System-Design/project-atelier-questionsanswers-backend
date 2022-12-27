@@ -1,17 +1,28 @@
 const db = require('../database/db');
 
 module.exports = {
-  getQuestions: (queries, callback) => {
-    console.log('queries are: ', queries);
-    db.query('SELECT * FROM question LIMIT 15;', (err, data) => callback(err, data));
+  getQuestions: (product_id, queries, callback) => {
+    db.query(`SELECT * FROM question WHERE product_id=${product_id} AND reported='f'`, (err, data) => {
+      const page = queries.page ? Number(queries.page) : 1;
+      const count = queries.count ? Number(queries.count) : 5;
+      const start = (page - 1) * count;
+      const paginationData = data.rows.slice(start, start + count);
+      callback(err, paginationData);
+    });
   },
 
-  getOneAnswers: (question_id, queries, callback) => {
-    db.query(`SELECT * FROM answer WHERE question_id=${question_id}`, (err, data) => callback(err, data));
+  getAnswers: (question_id, queries, callback) => {
+    db.query(`SELECT * FROM answer WHERE question_id=${question_id}`, (err, data) => {
+      const page = queries.page ? Number(queries.page) : 1;
+      const count = queries.count ? Number(queries.count) : 5;
+      const start = (page - 1) * count;
+      const paginationData = data.rows.slice(start, start + count);
+      callback(err, paginationData);
+    });
   },
 
-  addQuestion: (body, callback) => {
-    db.query(`INSERT INTO question (product_id, body, date_written, asker_name, asker_email, reported, helpful) VALUES(${body.product_id}, '${body.body}', ${new Date().getTime()}, '${body.asker_name}', '${body.asker_email}', '0', 0)`, (err, data) => callback(err, data));
+  addQuestion: (product_id, body, callback) => {
+    db.query(`INSERT INTO question (product_id, body, date_written, asker_name, asker_email, reported, helpful) VALUES(${product_id}, '${body.body}', ${new Date().getTime()}, '${body.asker_name}', '${body.asker_email}', '0', 0)`, (err, data) => callback(err, data));
   },
 
   addAnswer: (question_id , body, callback) => {
@@ -34,15 +45,3 @@ module.exports = {
     db.query(`UPDATE answer SET reported = 't' WHERE id=${answer_id}`, (err, data) => callback(err, data));
   }
 };
-
-// CREATE TABLE answer (
-//   id SERIAL PRIMARY KEY,
-//   placeholder INT,
-//   question_id INT REFERENCES question(id),
-//   body TEXT,
-//   date_written BIGINT,
-//   answerer_name TEXT,
-//   answerer_email TEXT,
-//   reported BOOLEAN,
-//   helpful INT
-// );
