@@ -1,5 +1,6 @@
 CREATE TABLE product (
-	id INT PRIMARY KEY,
+	id SERIAL PRIMARY KEY,
+  placeholder INT,
   name TEXT,
   slogan TEXT,
   description TEXT,
@@ -8,28 +9,32 @@ CREATE TABLE product (
 );
 
 CREATE TABLE question (
-  question_id INT PRIMARY KEY,
+  id SERIAL PRIMARY KEY,
+  placeholder INT,
 	product_id INT REFERENCES product(id),
-  username TEXT,
-  email TEXT,
   body TEXT,
-  helpfulness INT,
+  date_written BIGINT,
+  asker_name TEXT,
+  asker_email TEXT,
   reported BOOLEAN,
-  question_date TIMESTAMPTZ
+  helpful INT
 );
 
 CREATE TABLE answer (
-  answer_id INT PRIMARY KEY,
-  question_id INT REFERENCES question(question_id),
-  username TEXT,
-  email TEXT,
+  id SERIAL PRIMARY KEY,
+  placeholder INT,
+  question_id INT REFERENCES question(id),
   body TEXT,
-  helpfulness INT,
-  answer_date TIMESTAMPTZ
+  date_written BIGINT,
+  answerer_name TEXT,
+  answerer_email TEXT,
+  reported BOOLEAN,
+  helpful INT
 );
 
 CREATE TABLE photo (
-photo_id INT PRIMARY KEY,
-photo_url TEXT,
-answer_id INT REFERENCES answer(answer_id)
+id SERIAL PRIMARY KEY,
+placeholder INT,
+answer_id INT REFERENCES answer(id),
+url TEXT
 );

@@ -1,2 +1,16 @@
 const router = require('express').Router();
 const controllers = require('./controllers');
+
+router.get('/questions', controllers.getQuestions);
+router.get('/questions/:question_id/answers', controllers.getOneAnswers);
+
+router.post('/questions', controllers.addQuestion);
+router.post('/questions/:question_id/answers', controllers.addAnswer);
+
+router.put('questions/:question_id/helpful', controllers.addQuestionHelpful);
+router.put('/questions/:question_id/report', controllers.reportQuestion);
+
+router.put('answers/:answer_id/helpful', controllers.addAnswerHelpful);
+router.put('/answers/:answer_id/report', controllers.reportAnswer);
+
+module.exports = router;
