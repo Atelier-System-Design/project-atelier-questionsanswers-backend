@@ -9,7 +9,7 @@ module.exports = {
 
   getAnswers: (req, res) => {
     models.getAnswers(req.params.question_id, req.query, (err, data) => {
-      res.status(err ? 400 : 200).send(data);
+      res.status(err ? 404 : 200).send(data);
     });
   },
 

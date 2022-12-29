@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "mocha",
     "start": "nodemon server/index.js"
   },
   "repository": {
@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/Team-Prada/project-atelier-backend-QnA#readme",
   "devDependencies": {
-    "eslint": "^8.30.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-plugin-import": "^2.26.0"
+    "chai": "^4.3.7",
+    "mocha": "^10.2.0",
+    "supertest": "^6.3.3"
   },
   "dependencies": {
     "cors": "^2.8.5",

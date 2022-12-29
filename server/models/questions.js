@@ -26,8 +26,7 @@ module.exports = {
   },
 
   addAnswer: (question_id , body, callback) => {
-    console.log(body);
-    //db.query(`INSERT INTO answer (question_id, body, date_written, answerer_name, answerer_email, reported, helpful) VALUES(${question_id}, '${body.body}', ${new Date().getTime()}, '${body.answerer_name}', '${body.answerer_email}', '0', 0)`, (err, data) => callback(err, data));
+    db.query(`INSERT INTO answer (question_id, body, date_written, answerer_name, answerer_email, reported, helpful) VALUES(${question_id}, '${body.body}', ${new Date().getTime()}, '${body.answerer_name}', '${body.answerer_email}', '0', 0)`, (err, data) => callback(err, data));
   },
 
   addQuestionHelpful: (question_id, callback) => {
