@@ -15,37 +15,37 @@ module.exports = {
 
   addQuestion: (req, res) => {
     models.addQuestion(req.params.product_id, req.body, (err, data) => {
-      err ? res.status(400).send(err) : res.status(201).send();
+      res.status(err ? 400 : 201).send();
     });
   },
 
   addAnswer: (req, res) => {
     models.addAnswer(req.params.question_id, req.body, (err, data) => {
-      err ? res.status(400).send(err) : res.status(201).send();
+      res.status(err ? 400 : 201).send();
     });
   },
 
   addQuestionHelpful: (req, res) => {
     models.addQuestionHelpful(req.params.question_id, (err, data) => {
-      err ? res.status(400).send(err) : res.status(204).send();
+      res.status(err ? 400 : 204).send();
     });
   },
 
   addAnswerHelpful: (req, res) => {
     models.addAnswerHelpful(req.params.answer_id, (err, data) => {
-      err ? res.status(400).send(err) : res.status(204).send();
+      res.status(err ? 400 : 204).send();
     });
   },
 
   reportQuestion: (req, res) => {
     models.reportQuestion(req.params.question_id, (err, data) => {
-      err ? res.status(400).send(err) : res.status(204).send();
+      res.status(err ? 400 : 204).send();
     });
   },
 
   reportAnswer: (req, res) => {
     models.reportAnswer(req.params.answer_id, (err, data) => {
-      err ? res.status(400).send(err) : res.status(204).send();
+      res.status(err ? 400 : 204).send();
     });
   }
 };
