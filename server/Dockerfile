@@ -1,6 +1,6 @@
 FROM node:19-alpine
 
-RUN npm install -g nodemon
+RUN npm install node
 
 WORKDIR /server
 

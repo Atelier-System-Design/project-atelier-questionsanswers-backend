@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const controllers = require('./controllers');
 
-router.get('/questions/:product_id', controllers.getQuestions);
+router.get('/questions', controllers.getQuestions);
 router.get('/questions/:question_id/answers', controllers.getAnswers);
 
 router.post('/questions/:product_id', controllers.addQuestion);

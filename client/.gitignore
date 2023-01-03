@@ -1,5 +1,0 @@
-*.env
-*.map
-bundle.js
-config.js
-node_modules/
