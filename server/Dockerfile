@@ -1,14 +1,10 @@
 FROM node:19-alpine
 
-RUN npm install node
-
-WORKDIR /server
-
-COPY package.json .
-
-RUN npm install
+WORKDIR /dockerqa
 
 COPY . .
+
+RUN npm install
 
 EXPOSE 4000
 
