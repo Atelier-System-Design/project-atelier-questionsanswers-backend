@@ -1,5 +1,5 @@
 # Atelier Questions and Answers Service
-The Atelier Questions and Answers service supports the Q&A section of the Atelier Product Page. 
+The Atelier Questions and Answers service supports the Q&A section of the [Atelier Product Page](https://github.com/TeamJBox/rfp2210-fec).
 
 ## Tech Stack
 ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white)
@@ -15,4 +15,4 @@ The Atelier Questions and Answers service supports the Q&A section of the Atelie
 ## Overview
 The final architecture consists of an NGINX load balancer, 10 Node/Express servers, and one PostgreSQL database. API endpoints have been optimized and tuned to handle production level traffic (verified by loader.io stress test).
  
-## Architecture![Screen Shot 2023-02-08 at 10 20 32 AM](https://user-images.githubusercontent.com/18542870/217618193-89318068-585a-4758-8e40-f1469ca5107b.png)
+## Architecture![Screen Shot 2023-02-08 at 10 20 32 AM](https://user-images.githubusercontent.com/18542870/217722271-e2aa2fbb-384d-4105-9a1c-6f937a2211ee.png)
