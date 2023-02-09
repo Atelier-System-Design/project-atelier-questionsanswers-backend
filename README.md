@@ -40,8 +40,7 @@ After adding 2 additional server instances, an NGINX load balancer, and configur
 API Documentation: [Questions and Answers API](https://gist.github.com/trentgoing/d69849d6c16b82d279ffc4ecd127f49f#file-qa-md)
 
 # Contributor
-Justin Chong
-
+## Justin Chong
 [![Linkedin](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/justinjchong/)
-[![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)]
-(https://github.com/justinjchong)
+
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/justinjchong)
