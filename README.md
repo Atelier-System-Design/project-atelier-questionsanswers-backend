@@ -42,3 +42,4 @@ API Documentation: [Questions and Answers API](https://gist.github.com/trentgoin
 # Contributor
 Justin Chong
 
+![https://www.linkedin.com/in/justinjchong/](https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white)
